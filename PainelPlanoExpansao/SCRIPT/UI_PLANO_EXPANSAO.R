@@ -10,7 +10,7 @@ ui <- dashboardPage(
      tabItem(tabName = 'agencia_local',
               box(
                 solidHeader = T,
-                title = 'Área de atação da agência em Metros',
+                title = 'Área de atuação da agência em Metros',
                 status = "info",
                 width = 3,
                 selectInput('metros', label = 'Raio em Metros', choices = c(500,1000,1500,2000), selected = 500)
