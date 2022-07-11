@@ -38,10 +38,29 @@ server <- function(input, output) {
   output$leads_excel = renderDataTable({
     leads_ref = leads
     leads_ref$url = NULL; leads_ref$Latitude = NULL; leads_ref$Longitude = NULL
-    datatable(leads_ref, extensions = 'Buttons', options = list(
-      lengthMenu = list(c(10, 50, 100, -1), c('10', '50', '100', 'All')),
-      dom = 'Bfrtip',
-      buttons = c('copy', 'excel', 'pdf', 'print')))
+    
+    datatable( data = leads_ref
+               , extensions = 'Buttons'
+               , options = list( 
+                 dom = "Blfrtip"
+                 , buttons = 
+                   list("copy", list(
+                     extend = "collection"
+                     , buttons = c("csv", "excel", "pdf")
+                     , text = "Download"
+                   ) ) # end of buttons customization
+                 
+                 # customize the length menu
+                 , lengthMenu = list( c(10, 20, -1) # declare values
+                                      , c(10, 20, "All") # declare titles
+                 ) # end of lengthMenu customization
+                 , pageLength = 10
+                 
+                 
+               ) # end of options
+               
+    ) # end of datatables
+      
     
   })
   
