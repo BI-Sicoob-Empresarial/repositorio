@@ -3,7 +3,10 @@ ui <- dashboardPage(
   dashboardSidebar(
     sidebarMenu(
       menuItem('Agências e Localidades', tabName = 'agencia_local', icon = icon('archway')),
-      menuItem('Leads & Prospecção', tabName = 'leads', icon = icon('handshake'))
+      menuItem('Leads & Prospecção', tabName = 'leads_titulo', icon = icon('handshake'),
+               menuSubItem('Excel de Prospecção', tabName = 'leads_excel', icon = icon('table')),
+               menuSubItem('Mapa & Localização', tabName = 'leads', icon = icon('map'))
+               )
     )
   ),
   dashboardBody(
@@ -27,6 +30,16 @@ ui <- dashboardPage(
                 
               )
       ),
+     tabItem(tabName = 'leads_excel',
+       box(
+         solidHeader = F,
+         title = 'Dados com os prospecções encontradas',
+         background = NULL,
+         width = 12,
+         status = 'info',
+         dataTableOutput('leads_excel')
+       )
+     ),
      tabItem(tabName = 'leads',
              box(
                solidHeader = F,
