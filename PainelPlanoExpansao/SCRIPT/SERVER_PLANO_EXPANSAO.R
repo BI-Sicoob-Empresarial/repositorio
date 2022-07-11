@@ -27,6 +27,13 @@ server <- function(input, output) {
     }
     
   })
+    
+    output$mapa_leads = renderLeaflet({
+    m=leaflet() %>% 
+      addTiles() %>% 
+      addMarkers(lng = as.numeric(leads$Longitude), lat = as.numeric(leads$Latitude), label = paste(leads$Empresa, leads$Segmento, leads$Telefone, sep = ". "))
+    m
+  })
   
 
 }
