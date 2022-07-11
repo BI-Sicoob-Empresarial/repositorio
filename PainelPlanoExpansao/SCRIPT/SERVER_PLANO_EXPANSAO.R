@@ -44,7 +44,7 @@ server <- function(input, output) {
                , options = list( 
                  dom = "Blfrtip"
                  , buttons = 
-                   list("copy", list(
+                   list("copy", "print", list(
                      extend = "collection"
                      , buttons = c("csv", "excel", "pdf")
                      , text = "Download"
