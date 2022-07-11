@@ -27,12 +27,22 @@ server <- function(input, output) {
     }
     
   })
-    
-    output$mapa_leads = renderLeaflet({
+  
+  output$mapa_leads = renderLeaflet({
     m=leaflet() %>% 
       addTiles() %>% 
       addMarkers(lng = as.numeric(leads$Longitude), lat = as.numeric(leads$Latitude), label = paste(leads$Empresa, leads$Segmento, leads$Telefone, sep = ". "))
     m
+  })
+  
+  output$leads_excel = renderDataTable({
+    leads_ref = leads
+    leads_ref$url = NULL; leads_ref$Latitude = NULL; leads_ref$Longitude = NULL
+    datatable(leads_ref, extensions = 'Buttons', options = list(
+      lengthMenu = list(c(10, 50, 100, -1), c('10', '50', '100', 'All')),
+      dom = 'Bfrtip',
+      buttons = c('copy', 'excel', 'pdf', 'print')))
+    
   })
   
 
