@@ -3,6 +3,7 @@ ui <- dashboardPage(
   dashboardSidebar(
     sidebarMenu(
       menuItem('Agências e Localidades', tabName = 'agencia_local', icon = icon('archway')),
+      menuItem('PRO DEIVID PIRAR', tabName = 'ag', icon = icon('archway')),#acabei de alterar isso daki
       menuItem('Leads & Prospecção', tabName = 'leads_titulo', icon = icon('handshake'),
                menuSubItem('Excel de Prospecção', tabName = 'leads_excel', icon = icon('table')),
                menuSubItem('Mapa & Localização', tabName = 'leads', icon = icon('map'))
