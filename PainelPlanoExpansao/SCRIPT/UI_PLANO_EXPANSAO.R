@@ -32,10 +32,17 @@ ui <- dashboardPage(
       ),
      tabItem(tabName = 'leads_excel',
        box(
+         solidHeader = T,
+         title = 'Bairros',
+         status = "info",
+         width = 3,
+         selectInput('bairros', label = 'Selecione o Bairro', choices = sort(unique(c(leads$Bairro, 'Todos'))), selected = 'Todos')
+           ),
+       box(
          solidHeader = F,
          title = 'Dados com os prospecções encontradas',
          background = NULL,
-         width = 12,
+         width = 9,
          status = 'info',
          dataTableOutput('leads_excel')
        )
