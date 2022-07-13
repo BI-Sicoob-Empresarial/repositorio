@@ -39,9 +39,8 @@ server <- function(input, output) {
     leads_ref = leads
     leads_ref$url = NULL; leads_ref$Latitude = NULL; leads_ref$Longitude = NULL
     leads_ref$Bairro = as.factor(leads_ref$Bairro)
-    leads_ref$Todos = 'Todos'
     
-    datatable( data = if(input$bairros == 'Todos'){filter(leads_ref, Todos == input$bairros)} else{filter(leads_ref, Bairro == input$bairros)},
+    datatable( data = if(input$bairros=='Todos'){leads_ref}else{filter(leads_ref, Bairro == input$bairros)},
                  extensions = 'Buttons',
                  options = list( 
                  dom = "Blfrtip",
