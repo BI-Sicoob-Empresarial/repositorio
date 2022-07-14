@@ -36,7 +36,7 @@ ui <- dashboardPage(
          title = 'Bairros',
          status = "info",
          width = 3,
-         selectInput('bairros', label = 'Selecione o Bairro', choices = sort(unique(c(leads$Bairro, 'Todos'))), selected = 'Todos')
+         selectInput('bairros', label = 'Selecione o Bairro', choices = c('Todos', sort(unique(leads$Bairro))), selected = 'Todos')
            ),
        box(
          solidHeader = F,
