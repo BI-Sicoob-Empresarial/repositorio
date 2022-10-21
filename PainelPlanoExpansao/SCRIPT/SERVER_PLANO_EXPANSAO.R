@@ -30,8 +30,8 @@ server <- function(input, output) {
   
   output$mapa_leads = renderLeaflet({
     m=leaflet() %>% 
-      addTiles() %>%
-      addCircles(lng = as.numeric(leads$Longitude), lat = as.numeric(leads$Latitude), weight = 1, label = paste(leads$Empresa, leads$Segmento, leads$Telefone, sep = ". "))
+      addTiles() %>% 
+      addMarkers(lng = as.numeric(leads$Longitude), lat = as.numeric(leads$Latitude), clusterOptions = markerClusterOptions(),  label = paste(leads$Empresa, leads$Segmento, leads$Telefone, sep = ". "))
     m
   })
   
